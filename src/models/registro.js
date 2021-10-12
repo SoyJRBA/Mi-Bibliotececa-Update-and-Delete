@@ -6,4 +6,4 @@ const registro = new Schema ({
     Correo: String,
     Contraseña: String
 });
-module.exports = mongose.model ('Registros', registro);
+module.exports = mongoose.model('Registros', registro);
