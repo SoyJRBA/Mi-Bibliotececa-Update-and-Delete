@@ -20,21 +20,40 @@
                 <div class="card-body">
                     <form action="/add" method="POST">
                         <div class="form-group">
-                            <input type="text" name="Nombre" placeholder="Nombre Completo" class="form-control">
+                            <input type="text" name="Nombre" placeholder="Nombre Completo" required class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="Correo" placeholder="ejemplo@gmail.com" class="form-control">
+                            <input type="text" name="Correo" placeholder="ejemplo@gmail.com" required class="form-control">
                         </div>
                         <div class="form-group">
-                            <input type="text" name="Contraseña" placeholder="Contraseña" class="form-control">
+                            <input type="text" name="Contraseña" placeholder="Contraseña" required class="form-control">
                         </div>
                         <button class="btn btn-primary">Registrar</button>
                     </form>
                 </div>
             </div>
         </div>
-        <div class="col-md-5">
-
+        <div class="col-md-15">
+            <table class = "table table-bordered table-hover">
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nombre</th>
+                        <th>Correo</th>
+                        <th>Contraseña</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% for(var i = 0; i<valores.length; i++){ %>
+                        <tr>
+                            <td><%= i+1 %></td>
+                            <td><%= valores[i].Nombre %></td>
+                            <td><%= valores[i].Correo %></td>
+                            <td><%= valores[i].Contraseña %></td>
+                        </tr>
+                    <% } %>
+                </tbody>
+                </table>
         </div>
     </div>
 </body>
