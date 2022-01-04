@@ -17,4 +17,27 @@ router.post('/add', async (req,res) => {
     await valor.save();
     res.redirect('/');
 });
+
+router.get('/del/:id', async (req,res) => {
+    console.log(req.body.id);
+    const reg = await Valor.findByIdAndRemove(req.params.id);
+    console.log(reg);
+    res.redirect('/');
+});
+
+router.get('/edit/:id', async (req,res) => {
+    try {
+        const Registro = await Valor.findById(req.params.id).lean();
+        res.render("editar", {Registro});
+    } catch (error) {
+        console.log(error.message);
+    }
+});
+
+router.post("/edit/:id", async (req, res) => {
+    const {id} = req.params;
+    await Valor.findByIdAndUpdate (id, req.body);
+    res.redirect("/");
+});
+
 module.exports = router;

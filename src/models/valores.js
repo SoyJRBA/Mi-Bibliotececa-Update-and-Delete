@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const Valor = new Schema ({
     Nombre: String,
-    Correo: String,
-    Contraseña: String
+    Autor: String,
+    Publicacion: String,
+    Descripcion: String
 });
 module.exports = mongoose.model('Registros', Valor);
